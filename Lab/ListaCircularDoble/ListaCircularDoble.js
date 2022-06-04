@@ -1,55 +1,65 @@
-
 class Nodo{
-
-    constructor(Psmash){
-        this.personaje = Psmash;
+    constructor(carro){
+        this.carro = carro;
         this.siguiente = null;
-        this.tam = 0;   
+        this.anterior =null;
     }
+
 }
 
-class ListaPersonajesSmash{
+class Carro{
+    constructor(marca, linea, modelo){
+        this.marca = marca;
+        this.linea = linea;
+        this.modelo = modelo;
 
+    }
+
+}
+
+class ListaCarros{
     constructor(){
-        this.cabeza=null;
-        this.ultimo=null;
+        this.primero = null;
+        this.ultimo = null;
+
     }
 
-    agregarPsmash(nombrePersonaje){
-        var temporal = new Nodo(nombrePersonaje);
+    agregarCarro(carro){
+        var temporal =  new Nodo(carro)
 
-        if (this.cabeza == null) {
-            this.cabeza = temporal;
-            this.ultimo = this.cabeza;
-            this.tam++;
-        } else {
-            this.ultimo.siguiente = temporal;
-            temporal.siguiente = this.ultimo;
+        if (this.primero == null) {
+            this.primero = temporal;
             this.ultimo = temporal;
-            this.tam++;
+            this.ultimo.siguiente = this.primero;
+            this.primero.anterior = this.ultimo;
+        } else {
+            
+            this.primero.siguiente = temporal;
+            temporal.siguiente = this.ultimo;
+            this.ultimo.anterior = temporal;
+            temporal.anterior = this.primero;
+            this.ultimo = temporal
+
         }
-        
+
     }
 
+    mostrarLista(){
+        var temporal = this.ultimo;
+        do {
+            console.log(temporal.carro);
+            temporal =  temporal.siguiente;
 
-    mostrarpersonajes(){
-        var temporal = this.cabeza;
-        var cont = 0;
-        while(cont < this.tam){
-            console.log(temporal.personaje);
-            console.log(cont);
-            temporal = temporal.siguiente;
-        }
+        } while ((temporal != this.ultimo));
 
     }
 }
 
-var lista = new ListaPersonajesSmash();
+var lista =  new ListaCarros();
 
-lista.agregarPsmash("Mario");
-lista.agregarPsmash("Dedede");
-lista.agregarPsmash("Link");
-lista.agregarPsmash("Wario");
-lista.agregarPsmash("DKK");
+lista.agregarCarro(new Carro("Mazda", "MX5", "2000"));
+lista.agregarCarro(new Carro("Toyota", "Corolla", "2010"));
+lista.agregarCarro(new Carro("Toyota", "Hilux", "98"));
+lista.agregarCarro(new Carro("Honda", "CR-V", "2019"));
 
-lista.mostrarpersonajes();
+lista.mostrarLista();
