@@ -1,4 +1,5 @@
 
+
 //creamos clase nodo
 class Nodo {
 
@@ -25,10 +26,21 @@ class ListaStand{
 
     mostrarlistaStand(){
         var temporal = this.cabeza;
+        var codigoDot = "digraph { node [shape=box]; rankdir=LR;\n";
         while(temporal!=null){
             console.log(temporal.stand);
+            codigoDot+= temporal.stand + "-> ";
+
             temporal = temporal.siguiente;
         }
+
+        codigoDot += "null; null[shape=none]; }";
+
+        console.log(codigoDot);
+        d3.select("#lienzo")
+        .graphviz()
+          .dot(codigoDot)
+          .render();
 
     }
 
@@ -38,12 +50,12 @@ class ListaStand{
 
 var lista = new ListaStand();
 
-lista.addStand("Star Platinum");
-lista.addStand("The World");
+lista.addStand("Star_Platinum");
+lista.addStand("The_World");
 lista.addStand("Tusk");
 lista.addStand("Echoes");
-lista.addStand("Highway Star");
+lista.addStand("Highway_Star");
 lista.addStand("Justice");
-lista.addStand("Crazy Diamond");
+lista.addStand("Crazy_Diamond");
 
 lista.mostrarlistaStand();
