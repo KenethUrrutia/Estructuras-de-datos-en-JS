@@ -1,0 +1,20 @@
+#lienzo1{
+    height: 200px;
+    width: 100%;
+    background-color: aqua;
+    padding: 1%;
+    
+}
+#lienzo2{
+    height: 200px;
+    width: 100%;
+    background-color: rgb(255, 0, 212);
+    padding: 1%;
+}
+#lienzo3{
+    height: 200px;
+    width: 100%;
+    background-color: rgb(39, 219, 39);
+    padding: 1%;
+
+}
