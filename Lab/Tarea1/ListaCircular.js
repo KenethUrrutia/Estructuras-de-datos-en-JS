@@ -59,7 +59,7 @@ class ListaCircular{
 
         var codigoDot = "digraph G { \nlabel = \"De Fin a Inicio\"\nnode [shape=box]; rankdir=LR;\n " + etiquetas + conexiones +"}"
         console.log("\n");
-
+        console.log("Codigo Dot Generado: \n"+codigoDot);
         d3.select("#lienzo1")
         .graphviz()
           .height(500)
@@ -87,6 +87,7 @@ class ListaCircular{
 
         var codigoDot = "digraph G {\nlabel = \"De Inicio a Fin\" \nnode [shape=box]; rankdir=LR;\n " + etiquetas + conexiones +"}"
         console.log("\n");
+        console.log("Codigo Dot Generado: \n"+codigoDot);
         d3.select("#lienzo2")
         .graphviz()
           .height(500)
@@ -162,7 +163,8 @@ class ListaCircular{
             vueltas++;
         }
         var codigoDot = "digraph G { \nlabel = \"Doble Recorrido\" \nnode [shape=box]; rankdir=LR;\n " + etiquetas + conexiones +"}"
-        console.log(codigoDot);
+        console.log("\n");
+        console.log("Codigo Dot Generado: \n"+codigoDot);
         d3.select("#lienzo3")
         .graphviz()
         .height(500)
@@ -189,7 +191,9 @@ lista.agregar(7,8);
 lista.agregar(8,5);
 lista.agregar(9,4);
 
-
+console.log("De fin a inicio");
 lista.mostrarListaFinInicio();
+console.log("De inicio a fin");
 lista.mostrarListaInicioFin();
+console.log("Doble recorrido");
 lista.mostrarLista2Veces()
