@@ -1,0 +1,17 @@
+.cajon1{
+    float:left;
+    background:#CC6600;
+    width: 300px;
+    height: 500px;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+.cajon2{
+    float:left;
+    background:#000FFF;
+    width: 300px;
+    height: 500px;
+    
+    padding-left: 30px;
+    padding-top: 30px;
+}
